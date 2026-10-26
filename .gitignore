@@ -1,0 +1,11 @@
+__pycache__/
+*.py[co]
+dist/
+*.zip
+.vscode/
+.idea/
+# QGIS lock/temp files
+*.qgs~
+*.qgz~
+*.gpkg-shm
+*.gpkg-wal

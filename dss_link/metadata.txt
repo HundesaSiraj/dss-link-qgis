@@ -1,0 +1,20 @@
+[general]
+name=DSS Link
+qgisMinimumVersion=3.28
+qgisMaximumVersion=4.99
+supportsQt6=True
+description=Connect HEC-DSS records to map stations, click a station to inspect an interactive graph and table, browse the DSS catalog, and export linked temporal GeoPackages.
+version=0.6.0
+author=HUNDESA SIRAJ MOHAMMED and MARTA FIKADU SHIKUR
+email=hundesiraj65@gmail.com
+about=DSS Link brings HEC-DSS time series into an interactive QGIS workflow and automatically combines D-part date blocks into one logical series. Quick start: (1) load a point station layer; (2) open DSS Explorer and use Setup to choose the DSS file, station layer, station ID field and matching DSS pathname part, usually B; (3) connect and scan; (4) use Explore > Activate station click tool and click a map station once; (5) inspect the graph, hover for date/value details, open the sortable Table or export the series to CSV; (6) use Catalog to filter C/E/F and select a logical series; (7) use Export DSS to linked GeoPackage for a reusable temporal GIS layer. Requires pydsstools in the Python environment used by QGIS (see the README). A synthetic sample DSS file and station layer are provided in the GitHub repository. Concept originator and lead: HUNDESA SIRAJ MOHAMMED — Remote Sensing Specialist, Climate Data Analyst, Hydrogeologist and WebGIS Expert. Contributor: MARTA FIKADU SHIKUR — Remote Sensing Specialist and Extreme Event Modeller with experience in SMEV, GEV and related extreme-value methods.
+homepage=https://github.com/HundesaSiraj/dss-link-qgis
+tracker=https://github.com/HundesaSiraj/dss-link-qgis/issues
+repository=https://github.com/HundesaSiraj/dss-link-qgis
+icon=icon.png
+category=Vector
+tags=HEC-DSS,DSS,HEC-HMS,HEC-RAS,rainfall,hydrology,time series,stations,temporal,geopackage
+changelog=0.6.0 QGIS 4 / Qt6 support, plugin icons, export progress with Cancel, CSV export of the loaded series, remembered settings, error handling for map clicks, Unicode station IDs, UTC timestamps in exports, block-merged export. See CHANGELOG.md for details.
+experimental=True
+deprecated=False
+hasProcessingProvider=False

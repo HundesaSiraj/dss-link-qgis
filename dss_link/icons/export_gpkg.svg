@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- DSS Link export: series written into a GeoPackage (database) -->
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="#1565c0"/>
+  <path d="M15 30 V50 C15 54.5 49 54.5 49 50 V30" fill="#ffffff"/>
+  <ellipse cx="32" cy="30" rx="17" ry="5.5" fill="#ffffff" stroke="#1565c0" stroke-width="2"/>
+  <path d="M15 40 C15 44.5 49 44.5 49 40" fill="none" stroke="#90caf9" stroke-width="2.5"/>
+  <path d="M32 7 V22" stroke="#f7941d" stroke-width="6" stroke-linecap="round"/>
+  <path d="M23 17 L32 26.5 L41 17" fill="none" stroke="#f7941d" stroke-width="6"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

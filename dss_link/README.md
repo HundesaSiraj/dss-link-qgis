@@ -38,6 +38,8 @@ from source (see the [pydsstools project](https://github.com/gyanz/pydsstools)).
 
 1. Download `dss_link-<version>.zip` from the
    [GitHub releases](https://github.com/HundesaSiraj/dss-link-qgis/releases).
+   Do not use GitHub's *Code › Download ZIP*: that is the source repository,
+   not an installable plugin.
 2. Open **Plugins > Manage and Install Plugins** in QGIS.
 3. Select **Install from ZIP** and choose the downloaded file.
 4. Enable **DSS Link** if QGIS does not enable it automatically.

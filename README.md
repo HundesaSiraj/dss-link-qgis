@@ -10,10 +10,21 @@
 
 <p align="center">
   <a href="https://github.com/HundesaSiraj/dss-link-qgis/actions/workflows/tests.yml"><img src="https://github.com/HundesaSiraj/dss-link-qgis/actions/workflows/tests.yml/badge.svg" alt="tests"></a>
-  <a href="https://github.com/HundesaSiraj/dss-link-qgis/releases/latest"><img src="https://img.shields.io/github/v/release/HundesaSiraj/dss-link-qgis?include_prereleases" alt="latest release"></a>
+  <a href="https://github.com/HundesaSiraj/dss-link-qgis/releases"><img src="https://img.shields.io/github/v/release/HundesaSiraj/dss-link-qgis?include_prereleases" alt="latest release"></a>
   <img src="https://img.shields.io/badge/QGIS-3.28%2B%20%7C%204.x-589632?logo=qgis&logoColor=white" alt="QGIS 3.28+ and 4.x">
   <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-blue" alt="MIT licence"></a>
 </p>
+
+<p align="center">
+  <a href="https://github.com/HundesaSiraj/dss-link-qgis/releases/download/v0.6.0/dss_link-0.6.0.zip"><b>⬇ Download the plugin: dss_link-0.6.0.zip</b></a>
+  &nbsp;·&nbsp; <a href="https://github.com/HundesaSiraj/dss-link-qgis/releases">all releases</a>
+</p>
+
+> [!IMPORTANT]
+> Install the **`dss_link-<version>.zip`** file from the link above or from
+> [Releases](https://github.com/HundesaSiraj/dss-link-qgis/releases).
+> Do **not** use the green **Code › Download ZIP** button — that archive contains
+> the whole source repository and QGIS cannot install it as a plugin.
 
 ---
 
@@ -40,8 +51,9 @@ Temporal Controller.
 
 ## Installation
 
-1. Download **`dss_link-<version>.zip`** from the
-   [latest release](https://github.com/HundesaSiraj/dss-link-qgis/releases/latest).
+1. Download **[`dss_link-0.6.0.zip`](https://github.com/HundesaSiraj/dss-link-qgis/releases/download/v0.6.0/dss_link-0.6.0.zip)** (or the newest
+   `dss_link-<version>.zip` under [Releases](https://github.com/HundesaSiraj/dss-link-qgis/releases)).
+   Not the *Code › Download ZIP* archive.
 2. In QGIS open **Plugins › Manage and Install Plugins › Install from ZIP**,
    choose the downloaded file and click **Install Plugin**.
 3. Open **Plugins › DSS Link › Open interactive DSS Explorer**.

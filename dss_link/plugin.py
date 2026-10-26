@@ -19,8 +19,9 @@ from qgis.core import (
 from .compat import FIELD_DATETIME, FIELD_DOUBLE, FIELD_STRING
 from .core import group_logical_series, normalize_station_id, pathname_matches, split_pathname
 from .dialog import DssLinkDialog
-from .dss_reader import DssDependencyError, DssReader
+from .dss_reader import DssDependencyError, DssReader, pydsstools_available
 from .dock import DssExplorerDock
+from .installer import InstallDialog
 
 PLUGIN_DIR = os.path.dirname(__file__)
 
@@ -80,6 +81,17 @@ class DssLinkPlugin:
         self.dock.raise_()
 
     def run(self):
+        if not pydsstools_available():
+            answer = QMessageBox.question(
+                self.iface.mainWindow(),
+                "DSS Link dependency",
+                "DSS Link needs the pydsstools package to read DSS files, and it is not "
+                "installed in the Python used by QGIS.\n\nInstall it now? (internet needed)",
+            )
+            if answer != QMessageBox.StandardButton.Yes:
+                return
+            if not InstallDialog(self.iface.mainWindow()).exec() and not pydsstools_available():
+                return
         dialog = DssLinkDialog(self.iface.mainWindow())
         if not dialog.exec():
             return

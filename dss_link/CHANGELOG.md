@@ -4,6 +4,9 @@
 
 - Support QGIS 4 / Qt6 alongside QGIS 3.28+ (scoped Qt enums, `exec()`,
   Qt-agnostic Matplotlib backend, `QMetaType` field types on QGIS 3.38+).
+- One-click **Install pydsstools** (DSS Explorer > Setup, or when starting an
+  export): runs pip with the Python used by QGIS, so the OSGeo4W Shell is no
+  longer needed. Windows and Linux.
 - Add plugin and toolbar icons.
 - Export: read each logical series once with its D-part blocks merged, exactly
   as the Explorer does; `dss_path` records the block each value came from.

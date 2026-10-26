@@ -3,18 +3,38 @@ name=DSS Link
 qgisMinimumVersion=3.28
 qgisMaximumVersion=4.99
 supportsQt6=True
-description=Connect HEC-DSS records to map stations, click a station to inspect an interactive graph and table, browse the DSS catalog, and export linked temporal GeoPackages.
 version=0.6.0
-author=HUNDESA SIRAJ MOHAMMED and MARTA FIKADU SHIKUR
+author=Hundesa Siraj Mohammed, Marta Fikadu Shikur
 email=hundesiraj65@gmail.com
-about=DSS Link brings HEC-DSS time series into an interactive QGIS workflow and automatically combines D-part date blocks into one logical series. Quick start: (1) load a point station layer; (2) open DSS Explorer and use Setup to choose the DSS file, station layer, station ID field and matching DSS pathname part, usually B; (3) connect and scan; (4) use Explore > Activate station click tool and click a map station once; (5) inspect the graph, hover for date/value details, open the sortable Table or export the series to CSV; (6) use Catalog to filter C/E/F and select a logical series; (7) use Export DSS to linked GeoPackage for a reusable temporal GIS layer. Requires pydsstools in the Python environment used by QGIS (see the README). A synthetic sample DSS file and station layer are provided in the GitHub repository. Concept originator and lead: HUNDESA SIRAJ MOHAMMED — Remote Sensing Specialist, Climate Data Analyst, Hydrogeologist and WebGIS Expert. Contributor: MARTA FIKADU SHIKUR — Remote Sensing Specialist and Extreme Event Modeller with experience in SMEV, GEV and related extreme-value methods.
+
+description=Link HEC-DSS time series to map stations: click a station to explore its graph and table, browse the DSS catalog, and export temporal GeoPackages.
+
+about=DSS Link brings HEC-DSS time series (HEC-HMS, HEC-RAS, HEC-DSSVue and other HEC tools) into an interactive QGIS workflow for hydrology, rainfall and climate analysis.
+    Features:
+    - DSS Explorer panel: click a station on the map to see its series as an interactive graph (hover values, pan, zoom, save image), a sortable table and summary statistics, and export it to CSV.
+    - Catalog browser with C (parameter), E (interval) and F (version) filters. D-part date blocks are merged automatically into one logical series.
+    - Linked GeoPackage export with station and temporal observation layers, ready for the QGIS Temporal Controller.
+    - Tolerant station matching (case, spaces and punctuation ignored; any script).
+    Requirements: the pydsstools Python package (Windows and Linux). DSS Link installs it with one click from DSS Explorer > Setup; no OSGeo4W Shell is needed.
+    Quick start: load a point station layer, open DSS Explorer, choose the DSS file, station layer, ID field and pathname part (usually B) in Setup, click Connect, then activate the station click tool and click a station. A synthetic sample dataset is available in the GitHub repository.
+    Authors: Hundesa Siraj Mohammed (concept originator and lead developer; Remote Sensing Specialist, Climate Data Analyst, Hydrogeologist and WebGIS Expert) and Marta Fikadu Shikur (contributor; Remote Sensing Specialist and Extreme Event Modeller, SMEV/GEV extreme-value methods).
+
 homepage=https://github.com/HundesaSiraj/dss-link-qgis
 tracker=https://github.com/HundesaSiraj/dss-link-qgis/issues
 repository=https://github.com/HundesaSiraj/dss-link-qgis
 icon=icon.png
 category=Vector
-tags=HEC-DSS,DSS,HEC-HMS,HEC-RAS,rainfall,hydrology,time series,stations,temporal,geopackage
-changelog=0.6.0 QGIS 4 / Qt6 support, plugin icons, export progress with Cancel, CSV export of the loaded series, remembered settings, error handling for map clicks, Unicode station IDs, UTC timestamps in exports, block-merged export. See CHANGELOG.md for details.
+tags=HEC-DSS,DSS,HEC-HMS,HEC-RAS,hydrology,rainfall,climate,time series,stations,temporal,geopackage,csv
+
+changelog=0.6.0
+    - QGIS 4 / Qt6 support (QGIS 3.28+ still supported)
+    - One-click pydsstools installer (no OSGeo4W Shell needed)
+    - Plugin and toolbar icons
+    - Export: merged date blocks, progress with Cancel, UTC timestamps
+    - Explorer: CSV export, clear warnings on read errors, remembered settings
+    - Unicode station IDs; cleaner values
+    See CHANGELOG.md for earlier versions.
+
 experimental=True
 deprecated=False
 hasProcessingProvider=False

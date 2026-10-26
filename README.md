@@ -1,78 +1,124 @@
-# DSS Link for QGIS
+<p align="center">
+  <img src="dss_link/icon.png" width="96" alt="DSS Link icon">
+</p>
 
-<img src="dss_link/icon.png" width="72" align="right" alt="DSS Link icon">
+<h1 align="center">DSS Link for QGIS</h1>
 
-**DSS Link** connects HEC-DSS time series to a point station layer in QGIS.
-Click a station on the map to see its series as an interactive graph and
-table, browse the DSS catalog, export a series to CSV, or write everything to
-a temporal GeoPackage for the QGIS Temporal Controller.
+<p align="center">
+  Link HEC-DSS time series to map stations — explore, chart and export them inside QGIS.
+</p>
 
-HEC-DSS often splits one series into D-part date blocks (for example one per
-decade). DSS Link combines them into a single logical series automatically.
+<p align="center">
+  <a href="https://github.com/HundesaSiraj/dss-link-qgis/actions/workflows/tests.yml"><img src="https://github.com/HundesaSiraj/dss-link-qgis/actions/workflows/tests.yml/badge.svg" alt="tests"></a>
+  <a href="https://github.com/HundesaSiraj/dss-link-qgis/releases/latest"><img src="https://img.shields.io/github/v/release/HundesaSiraj/dss-link-qgis?include_prereleases" alt="latest release"></a>
+  <img src="https://img.shields.io/badge/QGIS-3.28%2B%20%7C%204.x-589632?logo=qgis&logoColor=white" alt="QGIS 3.28+ and 4.x">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-blue" alt="MIT licence"></a>
+</p>
 
-![DSS Explorer](docs/explorer.png)
+---
+
+**DSS Link** connects [HEC-DSS](https://www.hec.usace.army.mil/software/hec-dss/)
+files — the time-series store used by HEC-HMS, HEC-RAS, HEC-DSSVue and other
+HEC tools — to a point station layer in QGIS. Click a station on the map to see
+its record as an interactive graph and table, browse the DSS catalog, export a
+series to CSV, or write everything to a temporal GeoPackage for the QGIS
+Temporal Controller.
+
+<p align="center"><img src="docs/explorer.png" width="430" alt="DSS Explorer panel in QGIS"></p>
 
 ## Features
 
-- **DSS Explorer** dock: one-click station tool, graph with hover values,
-  pan/zoom/save, sortable table, summary statistics, CSV export
-- **Catalog** filtered by C (parameter), E (interval) and F (version)
-- **Linked GeoPackage export** with `stations` and temporal
-  `dss_observations` layers, progress and Cancel
-- Tolerant station matching (case, spaces, punctuation; any script)
-- Read-only DSS access; settings remembered between sessions
-- QGIS 3.28+ and QGIS 4 (Qt6)
+| | |
+|---|---|
+| **DSS Explorer** | Dock panel with a one-click station tool. Interactive graph (hover for date and value, pan, zoom, save image), sortable table, summary statistics (count, missing, min, max, mean) and **CSV export**. |
+| **Catalog browser** | Filter by C (parameter), E (interval) and F (version). D-part date blocks — e.g. one block per decade — are merged into **one logical series** automatically. |
+| **GeoPackage export** | `stations` and temporal `dss_observations` layers with native datetime, value, units and full pathname traceability. Progress bar with Cancel. |
+| **Robust matching** | Station IDs match regardless of case, spaces, underscores or hyphens, in any script. Duplicate IDs are reported. |
+| **Easy setup** | One-click installer for the `pydsstools` dependency — no OSGeo4W Shell needed. Settings are remembered between sessions. |
+| **Safe** | DSS files are opened read-only; the output never overwrites an existing file. |
+| **Compatible** | QGIS 3.28 and newer, including QGIS 4 (Qt6). |
 
-## Requirements
+## Installation
 
-- QGIS 3.28 or newer
-- [`pydsstools`](https://github.com/gyanz/pydsstools) in the Python used by
-  QGIS. On Windows, open the **OSGeo4W Shell** of your QGIS installation and
-  run `python -m pip install pydsstools`, then restart QGIS.
-
-## Install
-
-1. Download `dss_link-<version>.zip` from
-   [Releases](https://github.com/HundesaSiraj/dss-link-qgis/releases).
-2. In QGIS: **Plugins › Manage and Install Plugins › Install from ZIP**.
+1. Download **`dss_link-<version>.zip`** from the
+   [latest release](https://github.com/HundesaSiraj/dss-link-qgis/releases/latest).
+2. In QGIS open **Plugins › Manage and Install Plugins › Install from ZIP**,
+   choose the downloaded file and click **Install Plugin**.
 3. Open **Plugins › DSS Link › Open interactive DSS Explorer**.
+4. If the **Setup** tab shows *pydsstools is not installed*, click
+   **Install pydsstools** and wait about a minute (internet required).
 
-Full usage instructions: [dss_link/README.md](dss_link/README.md).
+> **Platform support.** pydsstools provides ready-made packages for **Windows**
+> and **Linux** (64-bit, Python 3.9–3.13), which covers current QGIS releases.
+> On macOS it must be built from source.
 
-## Try it with sample data
+## Quick start
 
-`sample_data/` contains a **synthetic** DSS file and a station GeoPackage
-(six Ethiopian towns, random but reproducible values; not observations).
-Load `sample_stations.gpkg`, then in Setup choose `sample_stations.dss`,
-field `Name`, part `B`. It includes multi-block monthly and daily series, a
-DSS station without a map point (GAMBELA) and a map point without DSS data
-(Jimma). Regenerate it with `scripts/make_sample_data.py` from the QGIS
+1. Load your station point layer in QGIS.
+2. In **DSS Explorer › Setup** choose the DSS file, the station layer, the
+   station ID field and the DSS pathname part that holds the station ID
+   (usually **B**), then click **Connect and scan catalog**.
+3. In **Explore**, click **Activate station click tool** and click a station.
+4. Use **Catalog** to filter by parameter, interval or version and pick another series.
+5. For a reusable GIS layer use **Plugins › DSS Link › Export DSS to linked GeoPackage**.
+
+Full documentation: [dss_link/README.md](dss_link/README.md) ·
+Version history: [CHANGELOG](dss_link/CHANGELOG.md)
+
+## Try it with the sample data
+
+[`sample_data/`](sample_data) contains a **synthetic** DSS file and a station
+GeoPackage for six Ethiopian towns. The values are random but reproducible —
+they are **not observations**. Load `sample_stations.gpkg`, then in Setup choose
+`sample_stations.dss`, field `Name`, part `B`.
+
+The dataset deliberately includes multi-block monthly and daily series, a DSS
+station without a map point (GAMBELA) and a map point without DSS data (Jimma),
+so every message of the plugin can be seen. Rebuild it with
+[`scripts/make_sample_data.py`](scripts/make_sample_data.py) from the QGIS
 Python console.
 
 ## Development
 
 ```text
-dss_link/          the QGIS plugin (this folder is what goes in the zip)
-tests/             unit tests for the QGIS-independent code
-scripts/           build_zip.py, make_sample_data.py
-sample_data/       synthetic demo data
+dss_link/         the QGIS plugin — this folder is what goes into the zip
+tests/            unit tests for the QGIS-independent code
+scripts/          build_zip.py, make_sample_data.py
+sample_data/      synthetic demonstration data
+docs/             screenshots
 ```
 
-```text
-python -m unittest discover -s tests -v   # run tests
-python scripts/build_zip.py               # -> dist/dss_link-<version>.zip
+```bash
+python -m unittest discover -s tests -v    # run the tests
+python scripts/build_zip.py                # build dist/dss_link-<version>.zip
 ```
+
+Pushing a tag such as `v0.6.0` builds the plugin zip and publishes a GitHub
+release automatically. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Authors
 
-- **HUNDESA SIRAJ MOHAMMED** — concept originator and lead. Remote Sensing
-  Specialist, Climate Data Analyst, Hydrogeologist and WebGIS Expert.
-- **MARTA FIKADU SHIKUR** — contributor. Remote Sensing Specialist and Extreme
-  Event Modeller (SMEV, GEV and related extreme-value methods).
+**Hundesa Siraj Mohammed** — concept originator and lead developer.
+Remote Sensing Specialist, Climate Data Analyst, Hydrogeologist and WebGIS Expert.
 
-Issues and suggestions: [GitHub issues](https://github.com/HundesaSiraj/dss-link-qgis/issues).
+**Marta Fikadu Shikur** — contributor.
+Remote Sensing Specialist and Extreme Event Modeller, experienced with SMEV,
+GEV and related extreme-value methods.
 
-## Licence
+## Citation
 
-MIT — see [LICENSE](LICENSE). HEC-DSS is software of the US Army Corps of
-Engineers Hydrologic Engineering Center; DSS Link is not affiliated with it.
+If DSS Link supports your research or reports, please cite it — GitHub's
+**Cite this repository** button uses [`CITATION.cff`](CITATION.cff):
+
+> Mohammed, H. S., & Shikur, M. F. (2026). *DSS Link: a QGIS plugin linking
+> HEC-DSS time series to map stations* (Version 0.6.0) [Computer software].
+> https://github.com/HundesaSiraj/dss-link-qgis
+
+## Acknowledgements and licence
+
+DSS Link reads DSS files through [pydsstools](https://github.com/gyanz/pydsstools)
+(MIT, Gyan Basyal). HEC-DSS is developed by the US Army Corps of Engineers
+Hydrologic Engineering Center; DSS Link is an independent project and is not
+affiliated with or endorsed by USACE.
+
+Released under the [MIT licence](LICENSE).

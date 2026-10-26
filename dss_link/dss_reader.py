@@ -23,7 +23,7 @@ class DssReader:
         except Exception as exc:
             raise DssDependencyError(
                 "Direct DSS access requires 'pydsstools' in the Python environment "
-                "used by QGIS. See the plugin README for installation instructions."
+                "used by QGIS. Open DSS Explorer > Setup and click Install pydsstools."
             ) from exc
 
         try:

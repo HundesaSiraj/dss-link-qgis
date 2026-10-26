@@ -6,11 +6,11 @@ containing stations and temporal point observations.
 
 ## Authors and professional contributions
 
-- **HUNDESA SIRAJ MOHAMMED — Concept originator and lead.** Remote Sensing
+- **Hundesa Siraj Mohammed — concept originator and lead developer.** Remote Sensing
   Specialist, Climate Data Analyst, Hydrogeologist and WebGIS Expert. He
   originated the DSS–QGIS integration concept and leads its climate,
   hydrogeological and WebGIS direction.
-- **MARTA FIKADU SHIKUR — Contributor.** Remote Sensing Specialist and Extreme
+- **Marta Fikadu Shikur — contributor.** Remote Sensing Specialist and Extreme
   Event Modeller. She contributed technical input informed by work with SMEV,
   GEV and other extreme-value methods.
 
@@ -18,19 +18,21 @@ containing stations and temporal point observations.
 
 - QGIS 3.28 or newer (QGIS 3 and QGIS 4 / Qt6 are both supported)
 - A point station layer loaded in QGIS
-- `pydsstools` installed in the Python environment used by QGIS
+- The `pydsstools` Python package (Windows and Linux, 64-bit)
 
-`pydsstools` includes compiled DSS components, so use a build compatible with
-the Python version and operating system shipped with your QGIS installation.
-On Windows, open the OSGeo4W Shell belonging to the QGIS installation and run:
+### Installing pydsstools — one click
 
-```text
-python -m pip install pydsstools
-```
+Open **DSS Explorer > Setup**. If pydsstools is missing, a red notice with an
+**Install pydsstools** button appears. Click it: DSS Link runs
+`pip install --user pydsstools` with the Python that QGIS uses and shows the
+progress. No OSGeo4W Shell or command line is needed. An internet connection is
+required; restart QGIS if asked.
 
-Restart QGIS after installation. If the package cannot be installed in that
-environment, use a dedicated DSS helper process in a future deployment rather
-than copying packages between unrelated Python installations.
+Manual alternative (Windows): open the **OSGeo4W Shell** of your QGIS
+installation and run `python -m pip install pydsstools`, then restart QGIS.
+
+pydsstools publishes no ready-made package for macOS; there it must be built
+from source (see the [pydsstools project](https://github.com/gyanz/pydsstools)).
 
 ## Install the plugin
 
@@ -115,7 +117,8 @@ period, so a January total appears as `1981-02-01 00:00` (DSS `31JAN1981 24:00`)
 
 ## Current limitations
 
-- Direct access depends on `pydsstools` being available to QGIS Python.
+- Reading DSS files depends on `pydsstools` (Windows and Linux; macOS needs a
+  source build).
 - GeoPackage export creates a new file rather than incrementally syncing.
 - Reading runs in the foreground; very large DSS files may temporarily make
   the QGIS interface less responsive (the export can be cancelled).

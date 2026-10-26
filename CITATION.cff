@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use DSS Link in your work, please cite it as below."
+title: "DSS Link: a QGIS plugin linking HEC-DSS time series to map stations"
+type: software
+authors:
+  - given-names: Hundesa Siraj
+    family-names: Mohammed
+    email: hundesiraj65@gmail.com
+  - given-names: Marta Fikadu
+    family-names: Shikur
+version: 0.6.0
+date-released: 2026-10-26
+license: MIT
+repository-code: "https://github.com/HundesaSiraj/dss-link-qgis"
+url: "https://github.com/HundesaSiraj/dss-link-qgis"
+keywords:
+  - QGIS
+  - HEC-DSS
+  - hydrology
+  - rainfall
+  - time series
+  - GIS

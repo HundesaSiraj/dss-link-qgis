@@ -37,6 +37,7 @@ from qgis.gui import QgsMapToolIdentify
 from .compat import is_point_layer, read_setting, write_setting
 from .core import group_logical_series, normalize_station_id, pathname_matches, split_pathname
 from .dss_reader import DssReader, pydsstools_available
+from .installer import InstallDialog
 
 try:
     try:  # backend_qtagg (Matplotlib 3.5+) follows the Qt binding: Qt5 or Qt6
@@ -247,14 +248,21 @@ class DssExplorerDock(QDockWidget):
         self.connect_button = QPushButton("Connect and scan catalog")
         self.connect_button.clicked.connect(self._connect_dss)
         connection_form.addRow("", self.connect_button)
-        if not pydsstools_available():
-            missing = QLabel(
-                "<b>pydsstools is not installed</b> in the Python used by QGIS, so DSS "
-                "files cannot be opened. See the plugin README for installation steps."
-            )
-            missing.setWordWrap(True)
-            missing.setStyleSheet("color: #b3261e;")
-            connection_form.addRow("", missing)
+        self.dependency_panel = QWidget()
+        dependency_layout = QVBoxLayout(self.dependency_panel)
+        dependency_layout.setContentsMargins(0, 0, 0, 0)
+        missing = QLabel(
+            "<b>pydsstools is not installed</b> in the Python used by QGIS, so DSS "
+            "files cannot be opened yet. Install it with one click (internet needed)."
+        )
+        missing.setWordWrap(True)
+        missing.setStyleSheet("color: #b3261e;")
+        dependency_layout.addWidget(missing)
+        install_button = QPushButton("Install pydsstools")
+        install_button.clicked.connect(self._install_dependency)
+        dependency_layout.addWidget(install_button)
+        self.dependency_panel.setVisible(not pydsstools_available())
+        connection_form.addRow("", self.dependency_panel)
         setup.addWidget(connection)
 
         mapping = QGroupBox("Map connection")
@@ -334,6 +342,11 @@ class DssExplorerDock(QDockWidget):
         )
         if path:
             self.dss_edit.setText(path)
+
+    def _install_dependency(self):
+        dialog = InstallDialog(self)
+        dialog.exec()
+        self.dependency_panel.setVisible(not pydsstools_available())
 
     def _field_changed(self, name):
         if name:

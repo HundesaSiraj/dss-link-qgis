@@ -1,0 +1,39 @@
+name: Bug report
+description: Something in DSS Link does not work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: qgis
+    attributes:
+      label: QGIS version and operating system
+      placeholder: e.g. QGIS 3.44.14, Windows 11
+    validations:
+      required: true
+  - type: input
+    id: plugin
+    attributes:
+      label: DSS Link version
+      placeholder: e.g. 0.6.0 (Plugins › Manage and Install Plugins)
+  - type: input
+    id: pydsstools
+    attributes:
+      label: pydsstools version
+      placeholder: e.g. 3.1.0
+  - type: textarea
+    id: log
+    attributes:
+      label: Error message or Python traceback
+      description: Copy it from the QGIS message or View › Panels › Log Messages.
+      render: text
+  - type: textarea
+    id: data
+    attributes:
+      label: Example DSS pathnames
+      description: A few pathnames from the Catalog tab help reproduce matching problems. Do not attach confidential data.

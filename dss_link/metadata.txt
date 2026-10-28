@@ -2,8 +2,7 @@
 name=DSS Link
 qgisMinimumVersion=3.28
 qgisMaximumVersion=4.99
-supportsQt6=True
-version=0.6.0
+version=1.0.0
 author=Hundesa Siraj Mohammed, Marta Fikadu Shikur
 email=hundesiraj65@gmail.com
 
@@ -26,7 +25,10 @@ icon=icon.png
 category=Vector
 tags=HEC-DSS,DSS,HEC-HMS,HEC-RAS,hydrology,rainfall,climate,time series,stations,temporal,geopackage,csv
 
-changelog=0.6.0
+changelog=1.0.0
+    - First stable release: no longer experimental, after field testing
+    - Metadata follows the current QGIS 4 rules (qgisMaximumVersion only)
+    0.6.0
     - QGIS 4 / Qt6 support (QGIS 3.28+ still supported)
     - One-click pydsstools installer (no OSGeo4W Shell needed)
     - Plugin and toolbar icons
@@ -35,6 +37,6 @@ changelog=0.6.0
     - Unicode station IDs; cleaner values
     See CHANGELOG.md for earlier versions.
 
-experimental=True
+experimental=False
 deprecated=False
 hasProcessingProvider=False

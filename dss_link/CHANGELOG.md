@@ -1,5 +1,14 @@
 # DSS Link changelog
 
+## 1.0.0
+
+- First stable release. DSS Link is no longer marked experimental, after
+  field testing by a second user, and is published in the official QGIS
+  plugin repository: https://plugins.qgis.org/plugins/dss_link/
+- Remove the deprecated `supportsQt6` metadata flag; QGIS 4 compatibility is
+  declared by `qgisMaximumVersion=4.99`, as the QGIS repository now requires.
+- Documentation: install from the QGIS Plugin Manager.
+
 ## 0.6.0
 
 - Support QGIS 4 / Qt6 alongside QGIS 3.28+ (scoped Qt enums, `exec()`,

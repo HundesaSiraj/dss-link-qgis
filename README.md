@@ -12,19 +12,19 @@
   <a href="https://github.com/HundesaSiraj/dss-link-qgis/actions/workflows/tests.yml"><img src="https://github.com/HundesaSiraj/dss-link-qgis/actions/workflows/tests.yml/badge.svg" alt="tests"></a>
   <a href="https://github.com/HundesaSiraj/dss-link-qgis/releases"><img src="https://img.shields.io/github/v/release/HundesaSiraj/dss-link-qgis?include_prereleases" alt="latest release"></a>
   <img src="https://img.shields.io/badge/QGIS-3.28%2B%20%7C%204.x-589632?logo=qgis&logoColor=white" alt="QGIS 3.28+ and 4.x">
+  <a href="https://plugins.qgis.org/plugins/dss_link/"><img src="https://img.shields.io/badge/QGIS%20plugin%20repository-DSS%20Link-589632?logo=qgis&logoColor=white" alt="QGIS plugin repository"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-blue" alt="MIT licence"></a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/HundesaSiraj/dss-link-qgis/releases/download/v0.6.0/dss_link-0.6.0.zip"><b>⬇ Download the plugin: dss_link-0.6.0.zip</b></a>
-  &nbsp;·&nbsp; <a href="https://github.com/HundesaSiraj/dss-link-qgis/releases">all releases</a>
-</p>
-
-> [!IMPORTANT]
-> Install the **`dss_link-<version>.zip`** file from the link above or from
-> [Releases](https://github.com/HundesaSiraj/dss-link-qgis/releases).
-> Do **not** use the green **Code › Download ZIP** button — that archive contains
-> the whole source repository and QGIS cannot install it as a plugin.
+> [!TIP]
+> **Install directly in QGIS:** *Plugins › Manage and Install Plugins*, search
+> for **DSS Link** and click **Install**. DSS Link is published in the
+> [official QGIS plugin repository](https://plugins.qgis.org/plugins/dss_link/).
+>
+> Offline? Download **`dss_link-<version>.zip`** from the
+> [latest release](https://github.com/HundesaSiraj/dss-link-qgis/releases/latest)
+> and use *Install from ZIP*. Do **not** use the green **Code › Download ZIP**
+> button — that is the source repository, not an installable plugin.
 
 ---
 
@@ -51,14 +51,15 @@ Temporal Controller.
 
 ## Installation
 
-1. Download **[`dss_link-0.6.0.zip`](https://github.com/HundesaSiraj/dss-link-qgis/releases/download/v0.6.0/dss_link-0.6.0.zip)** (or the newest
-   `dss_link-<version>.zip` under [Releases](https://github.com/HundesaSiraj/dss-link-qgis/releases)).
-   Not the *Code › Download ZIP* archive.
-2. In QGIS open **Plugins › Manage and Install Plugins › Install from ZIP**,
-   choose the downloaded file and click **Install Plugin**.
+1. In QGIS open **Plugins › Manage and Install Plugins › All**.
+2. Search for **DSS Link** and click **Install Plugin**.
 3. Open **Plugins › DSS Link › Open interactive DSS Explorer**.
 4. If the **Setup** tab shows *pydsstools is not installed*, click
    **Install pydsstools** and wait about a minute (internet required).
+
+Without internet access in QGIS, download `dss_link-<version>.zip` from the
+[latest release](https://github.com/HundesaSiraj/dss-link-qgis/releases/latest)
+and use **Install from ZIP** instead (not the *Code › Download ZIP* archive).
 
 > **Platform support.** pydsstools provides ready-made packages for **Windows**
 > and **Linux** (64-bit, Python 3.9–3.13), which covers current QGIS releases.
@@ -105,7 +106,7 @@ python -m unittest discover -s tests -v    # run the tests
 python scripts/build_zip.py                # build dist/dss_link-<version>.zip
 ```
 
-Pushing a tag such as `v0.6.0` builds the plugin zip and publishes a GitHub
+Pushing a tag such as `v1.0.0` builds the plugin zip and publishes a GitHub
 release automatically. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Authors
@@ -123,7 +124,7 @@ If DSS Link supports your research or reports, please cite it — GitHub's
 **Cite this repository** button uses [`CITATION.cff`](CITATION.cff):
 
 > Mohammed, H. S., & Shikur, M. F. (2026). *DSS Link: a QGIS plugin linking
-> HEC-DSS time series to map stations* (Version 0.6.0) [Computer software].
+> HEC-DSS time series to map stations* (Version 1.0.0) [Computer software].
 > https://github.com/HundesaSiraj/dss-link-qgis
 
 ## Acknowledgements and licence
